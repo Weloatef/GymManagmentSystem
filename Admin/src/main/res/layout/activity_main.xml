@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:id="@+id/drawerLayout">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blank_wallpaper"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:weightSum="4">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="2"
+        android:layout_gravity="top"
+        android:gravity="top">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:background="@drawable/custom_toolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:weightSum="4"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/MenuButton"
+                    android:layout_width="45dp"
+                    android:layout_height="55dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/baseline_menu_24"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:text="Home"
+                    android:textStyle="bold"
+                    android:textSize="30sp"
+                    android:layout_weight="3.8"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+
+                    />
+
+                <Button
+                    android:id="@+id/LogoutButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:backgroundTint="@color/Red"
+                    android:text="Logut"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    app:cornerRadius="20dp"/>
+            </LinearLayout>
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@drawable/logo_png"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageButton
+                            android:id="@+id/ManageButton"
+                            android:layout_width="370dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_marginLeft="15dp"
+                            android:background="@drawable/manage"
+                            android:gravity="center"
+                            app:cornerRadius="30dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Manage"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:textSize="80sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/ManageButton"
+                            app:layout_constraintEnd_toEndOf="@+id/ManageButton"
+                            app:layout_constraintStart_toStartOf="@+id/ManageButton"
+                            app:layout_constraintTop_toTopOf="@+id/ManageButton" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageButton
+                            android:id="@+id/BillingButton"
+                            android:layout_width="370dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/billing"
+                            android:gravity="center"
+                            app:cornerRadius="30dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Billing"
+                            android:textAlignment="center"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:textSize="80sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/BillingButton"
+                            app:layout_constraintEnd_toEndOf="@+id/BillingButton"
+                            app:layout_constraintStart_toStartOf="@+id/BillingButton"
+                            app:layout_constraintTop_toTopOf="@+id/BillingButton" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageButton
+                            android:id="@+id/ReportsButton"
+                            android:layout_width="370dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/reports"
+                            android:gravity="center"
+                            app:cornerRadius="30dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Reports"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:textSize="80sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/ReportsButton"
+                            app:layout_constraintEnd_toEndOf="@+id/ReportsButton"
+                            app:layout_constraintStart_toStartOf="@+id/ReportsButton"
+                            app:layout_constraintTop_toTopOf="@+id/ReportsButton" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageButton
+                            android:id="@+id/ProfileButton"
+                            android:layout_width="370dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/profile"
+                            android:gravity="center"
+                            android:layout_marginRight="15dp"
+                            app:cornerRadius="30dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Profile"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:textSize="80sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/ProfileButton"
+                            app:layout_constraintEnd_toEndOf="@+id/ProfileButton"
+                            app:layout_constraintStart_toStartOf="@+id/ProfileButton"
+                            app:layout_constraintTop_toTopOf="@+id/ProfileButton" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_gravity = "start">
+
+        <include
+            layout="@layout/nav_drawer"/>
+    </RelativeLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

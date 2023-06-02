@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Gym Managment System"
-include ':app'
+include ':Admin'
