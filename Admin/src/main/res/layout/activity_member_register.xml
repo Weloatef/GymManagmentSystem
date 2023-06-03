@@ -9,7 +9,7 @@
     android:gravity="bottom"
     android:orientation="vertical"
     android:weightSum="4"
-    tools:context=".RegisterActivity">
+    tools:context=".MemberRegisterActivity">
 
 
     <androidx.cardview.widget.CardView
@@ -31,7 +31,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Admin Register"
+                android:text="Member Register"
                 android:textAlignment="center"
                 android:textColor="@color/Blue"
                 android:textSize="36sp"

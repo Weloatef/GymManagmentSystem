@@ -48,7 +48,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class RegisterActivity extends AppCompatActivity {
+public class MemberRegisterActivity extends AppCompatActivity {
     private EditText Email;
     private EditText Pass;
     private EditText Username;
@@ -60,6 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private String imageURL;
     private Uri uri;
+
     DatabaseReference data;
 
 
@@ -67,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_member_register);
 
         progressBar=findViewById(R.id.ProgressbarR);
         uploadImage = findViewById(R.id.ProfilePic);
@@ -110,7 +111,7 @@ public class RegisterActivity extends AppCompatActivity {
                             uri = data.getData();
                             uploadImage.setImageURI(uri);
                         } else {
-                            Toast.makeText(RegisterActivity.this, "No Image Selected", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MemberRegisterActivity.this, "No Image Selected", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
@@ -144,7 +145,7 @@ public class RegisterActivity extends AppCompatActivity {
         String val = Name.getText().toString();
         if (val.isEmpty()) {
             progressBar.setVisibility(View.GONE);
-            Toast.makeText(RegisterActivity.this, "Empty Input!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MemberRegisterActivity.this, "Empty Input!", Toast.LENGTH_SHORT).show();
             FailedRTextView.setTextColor(Color.RED);
             FailedRTextView.setText("Please enter your Name");
             return false;
@@ -156,7 +157,7 @@ public class RegisterActivity extends AppCompatActivity {
         String val = Pass.getText().toString();
         if (val.isEmpty()) {
             progressBar.setVisibility(View.GONE);
-            Toast.makeText(RegisterActivity.this, "Empty Input!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MemberRegisterActivity.this, "Empty Input!", Toast.LENGTH_SHORT).show();
             FailedRTextView.setTextColor(Color.RED);
             FailedRTextView.setText("Please enter your password");
             return false;
@@ -168,7 +169,7 @@ public class RegisterActivity extends AppCompatActivity {
         String val = Username.getText().toString();
         if (val.isEmpty()) {
             progressBar.setVisibility(View.GONE);
-            Toast.makeText(RegisterActivity.this, "Empty Input!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MemberRegisterActivity.this, "Empty Input!", Toast.LENGTH_SHORT).show();
             FailedRTextView.setTextColor(Color.RED);
             FailedRTextView.setText("Please enter your Username");
             return false;
@@ -180,7 +181,7 @@ public class RegisterActivity extends AppCompatActivity {
         String val = PhoneNumber.getText().toString();
         if (val.isEmpty()) {
             progressBar.setVisibility(View.GONE);
-            Toast.makeText(RegisterActivity.this, "Empty Input!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MemberRegisterActivity.this, "Empty Input!", Toast.LENGTH_SHORT).show();
             FailedRTextView.setTextColor(Color.RED);
             FailedRTextView.setText("Please enter your Phone Number");
             return false;
@@ -192,7 +193,7 @@ public class RegisterActivity extends AppCompatActivity {
         String val = Email.getText().toString();
         if (val.isEmpty()) {
             progressBar.setVisibility(View.GONE);
-            Toast.makeText(RegisterActivity.this, "Empty Input!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MemberRegisterActivity.this, "Empty Input!", Toast.LENGTH_SHORT).show();
             FailedRTextView.setTextColor(Color.RED);
             FailedRTextView.setText("Please enter your Email");
             return false;
@@ -203,7 +204,6 @@ public class RegisterActivity extends AppCompatActivity {
     public void saveData(){
         StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Profile Pictures")
                 .child(uri.getLastPathSegment());
-
         storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -227,8 +227,6 @@ public class RegisterActivity extends AppCompatActivity {
         String email = Email.getText().toString();
         String phoneNumber = PhoneNumber.getText().toString();
         String password = Pass.getText().toString();
-        //We are changing the child from title to currentDate,
-        // because we will be updating title as well and it may affect child value.
         data=FirebaseDatabase.getInstance().getReference();
         Map<String, Object> updates = new HashMap<>();
         updates.put("name", name);
@@ -237,14 +235,14 @@ public class RegisterActivity extends AppCompatActivity {
         updates.put("email", email);
         updates.put("image", imageURL);
         updates.put("phonenumber", phoneNumber);
-        data.child("Admins").child(username)
+        data.child("Members").child(username)
                 .setValue(updates).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
                             progressBar.setVisibility(View.GONE);
-                            Toast.makeText(RegisterActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
-                            Intent intent=new Intent(RegisterActivity.this,AdminManageActivity.class);
+                            Toast.makeText(MemberRegisterActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(MemberRegisterActivity.this,MembersManageActivity.class);
                             startActivity(intent);
                         }
                     }
@@ -252,7 +250,7 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressBar.setVisibility(View.GONE);
-                        Toast.makeText(RegisterActivity.this, "Failed To Register", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MemberRegisterActivity.this, "Failed To Register", Toast.LENGTH_SHORT).show();
                     }
                 });
     }

@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 
 public class ManageActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
-    ImageButton MenuButton,AdminButton;
+    ImageButton MenuButton,AdminButton,CoachesButton,MembersButton;
     LinearLayout home,manage,billing,reports,profile,aboutus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,8 @@ public class ManageActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawerLayout);
         AdminButton =findViewById(R.id.AdminButton);
+        CoachesButton=findViewById(R.id.CoachesButton);
+        MembersButton=findViewById(R.id.MembersButton);
         home=findViewById(R.id.home);
         manage=findViewById(R.id.Manage);
         billing=findViewById(R.id.Billing);
@@ -69,6 +71,18 @@ public class ManageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 redirectactivity(ManageActivity.this, AdminManageActivity.class);
+            }
+        });
+        CoachesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirectactivity(ManageActivity.this, CoachesManageActivity.class);
+            }
+        });
+        MembersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirectactivity(ManageActivity.this, MembersManageActivity.class);
             }
         });
     }

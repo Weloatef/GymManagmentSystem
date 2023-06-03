@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 public class MainActivity extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
-    ImageButton MenuButton;
+    ImageButton MenuButton,ManageButton,BillingButton,ReportsButton,ProfileButton;
     LinearLayout home,manage,billing,reports,profile,aboutus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawerLayout);
         home=findViewById(R.id.home);
+        ManageButton=findViewById(R.id.ManageButton);
+        BillingButton=findViewById(R.id.BillingButton);
+        ReportsButton=findViewById(R.id.ReportsButton);
+        ProfileButton=findViewById(R.id.ProfileButton);
         manage=findViewById(R.id.Manage);
         billing=findViewById(R.id.Billing);
         reports=findViewById(R.id.Reports);
@@ -62,6 +66,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirectactivity(MainActivity.this, ProfileActivity.class);
+            }
+        });
+        ManageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirectactivity(MainActivity.this, ManageActivity.class);
+            }
+        });
+        BillingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirectactivity(MainActivity.this, BillingActivity.class);
+            }
+        });
+        ReportsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirectactivity(MainActivity.this, ReportActivity.class);
+            }
+        });
+        ProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 redirectactivity(MainActivity.this, ProfileActivity.class);

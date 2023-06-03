@@ -42,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar progressBar;
 
 
+
     @Override
     public void onStart() {
         super.onStart();
@@ -131,25 +132,25 @@ public class LoginActivity extends AppCompatActivity {
         String userUsername = Username.getText().toString().trim();
         String userPassword = Pass.getText().toString().trim();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Admins");
-        Query checkUserDatabase = reference.orderByChild("Username").equalTo(userUsername);
+        Query checkUserDatabase = reference.orderByChild("username").equalTo(userUsername);
         checkUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 progressBar.setVisibility(View.GONE);
                 if (snapshot.exists()){
-                    String passwordFromDB = snapshot.child(userUsername).child("Password").getValue(String.class);
+                    String passwordFromDB = snapshot.child(userUsername).child("password").getValue(String.class);
                     if (Objects.equals(passwordFromDB,userPassword)) {
-                        String nameFromDB = snapshot.child(userUsername).child("Name").getValue(String.class);
-                        String emailFromDB = snapshot.child(userUsername).child("Email").getValue(String.class);
-                        String usernameFromDB = snapshot.child(userUsername).child("Username").getValue(String.class);
-                        String phonenumberFromDB = snapshot.child(userUsername).child("PhoneNumber").getValue(String.class);
+                        String nameFromDB = snapshot.child(userUsername).child("name").getValue(String.class);
+                        String emailFromDB = snapshot.child(userUsername).child("email").getValue(String.class);
+                        String usernameFromDB = snapshot.child(userUsername).child("username").getValue(String.class);
+                        String phonenumberFromDB = snapshot.child(userUsername).child("phoneNumber").getValue(String.class);
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        intent.putExtra("Name", nameFromDB);
-                        intent.putExtra("Email", emailFromDB);
-                        intent.putExtra("Username", usernameFromDB);
-                        intent.putExtra("Password", passwordFromDB);
-                        intent.putExtra("PhoneNumber", phonenumberFromDB);
+                        intent.putExtra("name", nameFromDB);
+                        intent.putExtra("email", emailFromDB);
+                        intent.putExtra("username", usernameFromDB);
+                        intent.putExtra("password", passwordFromDB);
+                        intent.putExtra("phoneNumber", phonenumberFromDB);
 
                         startActivity(intent);
                     } else {

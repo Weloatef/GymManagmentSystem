@@ -27,6 +27,25 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:354559050446:android:141581646125bdeaa3469f",
+        "android_client_info": {
+          "package_name": "com.example.gym2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJADUO7s6V1ElAgJR9CgGf0HrcX9Sg98Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:354559050446:android:84b14e10f0416fc3a3469f",
         "android_client_info": {
           "package_name": "com.example.gymmanagmentsystem"

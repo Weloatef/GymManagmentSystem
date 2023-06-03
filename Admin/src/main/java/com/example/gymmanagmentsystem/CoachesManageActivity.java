@@ -8,12 +8,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 public class CoachesManageActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ImageButton MenuButton;
+    Button AddCButton;
     LinearLayout home,manage,billing,reports,profile,aboutus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,7 @@ public class CoachesManageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_coaches_manage);
 
         drawerLayout = findViewById(R.id.drawerLayout);
+        AddCButton=findViewById(R.id.AddCButton);
         home=findViewById(R.id.home);
         manage=findViewById(R.id.Manage);
         billing=findViewById(R.id.Billing);
@@ -62,6 +65,12 @@ public class CoachesManageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 redirectactivity(CoachesManageActivity.this, ProfileActivity.class);
+            }
+        });
+        AddCButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirectactivity(CoachesManageActivity.this, CoachRegisterActivity.class);
             }
         });
     }
