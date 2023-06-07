@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Gym Managment System"
 include ':Admin'
+include ':Coach'
+include ':Member'

@@ -10,83 +10,229 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/blank_wallpaper"
         android:orientation="vertical"
         android:gravity="top"
-        android:background="@drawable/blank_wallpaper">
+        android:weightSum="4">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_gravity="center"
-        android:background="@drawable/custom_toolbar">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:background="@drawable/custom_toolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:weightSum="4"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/MenuButton"
+                    android:layout_width="45dp"
+                    android:layout_height="55dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/baseline_menu_24"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:text="Members"
+                    android:textStyle="bold"
+                    android:textSize="30sp"
+                    android:layout_weight="3.8"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+
+                    />
+
+                <Button
+                    android:id="@+id/LogoutButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:backgroundTint="@color/Red"
+                    android:text="Logut"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    app:cornerRadius="20dp"/>
+            </LinearLayout>
+        </com.google.android.material.appbar.MaterialToolbar>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:weightSum="4"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:weightSum="5">
 
-            <ImageButton
-                android:id="@+id/MenuButton"
-                android:layout_width="45dp"
-                android:layout_height="55dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/baseline_menu_24"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:text="Members"
-                android:textStyle="bold"
-                android:textSize="30sp"
-                android:layout_weight="3.8"
-                android:gravity="center"
-                android:textColor="@color/white"
-
-                />
-
-            <Button
-                android:id="@+id/LogoutButton"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/Red"
-                android:text="Logut"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textSize="18sp"
-                app:cornerRadius="20dp"/>
-        </LinearLayout>
-    </com.google.android.material.appbar.MaterialToolbar>
-
-        <androidx.appcompat.widget.SearchView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"
-            android:id="@+id/search"
-            app:iconifiedByDefault="false"
-            app:searchHintIcon="@null"
-            app:queryHint="Search..."
-            android:focusable="false"
-            app:closeIcon="@drawable/baseline_clear_24"
-            app:searchIcon="@drawable/baseline_person_search_24"
-            android:background="@drawable/custom_edittextwhite"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="8.8">
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_marginTop="10dp"
-                android:layout_below="@id/headbar"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/recyclerView"
-                android:scrollbars="vertical"/>
+                android:layout_weight="1"
+                android:weightSum="4"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/baseline_person_add_24"/>
+
+                <Button
+                    android:id="@+id/AddMButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/custom_edittext"
+                    android:gravity="center"
+                    android:text="Add"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="50sp"
+                    app:cornerRadius="30dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:weightSum="4"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/baseline_person_remove_24"/>
+
+                <Button
+                    android:id="@+id/DeleteMButton"
+                    android:layout_weight="3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/custom_edittext"
+                    android:gravity="center"
+                    android:text="Delete"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="30sp"
+                    app:cornerRadius="30dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:weightSum="4"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/baseline_update_24"/>
+
+                <Button
+                    android:id="@+id/UpdateMButton"
+                    android:layout_weight="3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/custom_edittext"
+                    android:gravity="center"
+                    android:text="Update"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="27sp"
+                    app:cornerRadius="30dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:weightSum="4"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/baseline_list_24"/>
+
+                <Button
+                    android:id="@+id/ListMButton"
+                    android:layout_weight="3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/custom_edittext"
+                    android:gravity="center"
+                    android:text="List"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="50sp"
+                    app:cornerRadius="30dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:weightSum="4"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/baseline_person_search_24"/>
+
+                <Button
+                    android:id="@+id/SearchMButton"
+                    android:layout_weight="3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/custom_edittext"
+                    android:gravity="center"
+                    android:text="Search"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="27sp"
+                    app:cornerRadius="30dp" />
+
+
+            </LinearLayout>
+
+
 
 
         </LinearLayout>

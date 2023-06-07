@@ -30,10 +30,14 @@ public class MembersManageActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ImageButton MenuButton;
     LinearLayout home,manage,billing,reports,profile,aboutus;
+    Button logout,AddMButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_members_manage);
+        logout=findViewById(R.id.LogoutButton);
+
+        AddMButton=findViewById(R.id.AddMButton);
 
         drawerLayout = findViewById(R.id.drawerLayout);
         home=findViewById(R.id.home);
@@ -85,7 +89,18 @@ public class MembersManageActivity extends AppCompatActivity {
                 redirectactivity(MembersManageActivity.this, MemberRegisterActivity.class);
             }
         });
-    }
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirectactivity(MembersManageActivity.this, LoginActivity.class);
+            }
+        });
+        AddMButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirectactivity(MembersManageActivity.this, MemberRegisterActivity.class);
+            }
+        });    }
 
     public static void opendrawer(DrawerLayout drawerLayout){
         drawerLayout.openDrawer(GravityCompat.START);

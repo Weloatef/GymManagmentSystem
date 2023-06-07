@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
@@ -15,10 +16,13 @@ public class ManageActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ImageButton MenuButton,AdminButton,CoachesButton,MembersButton;
     LinearLayout home,manage,billing,reports,profile,aboutus;
+    Bundle bundle;
+    Button logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage);
+        logout=findViewById(R.id.LogoutButton);
 
         drawerLayout = findViewById(R.id.drawerLayout);
         AdminButton =findViewById(R.id.AdminButton);
@@ -31,6 +35,8 @@ public class ManageActivity extends AppCompatActivity {
         profile=findViewById(R.id.Profile);
         aboutus=findViewById(R.id.AboutUs);
         MenuButton=findViewById(R.id.MenuButton);
+        bundle = getIntent().getExtras();
+
         MenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,7 +46,7 @@ public class ManageActivity extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                redirectactivity(ManageActivity.this, MainActivity.class);
+                redirectactivity(ManageActivity.this, MainActivity.class,bundle);
             }
         });
         manage.setOnClickListener(new View.OnClickListener() {
@@ -52,37 +58,43 @@ public class ManageActivity extends AppCompatActivity {
         billing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                redirectactivity(ManageActivity.this, BillingActivity.class);
+                redirectactivity(ManageActivity.this, BillingActivity.class,bundle);
             }
         });
         reports.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                redirectactivity(ManageActivity.this, ReportActivity.class);
+                redirectactivity(ManageActivity.this, ReportActivity.class,bundle);
             }
         });
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                redirectactivity(ManageActivity.this, ProfileActivity.class);
+                redirectactivity(ManageActivity.this, ProfileActivity.class,bundle);
             }
         });
         AdminButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                redirectactivity(ManageActivity.this, AdminManageActivity.class);
+                redirectactivity(ManageActivity.this, AdminManageActivity.class,bundle);
             }
         });
         CoachesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                redirectactivity(ManageActivity.this, CoachesManageActivity.class);
+                redirectactivity(ManageActivity.this, CoachesManageActivity.class,bundle);
             }
         });
         MembersButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                redirectactivity(ManageActivity.this, MembersManageActivity.class);
+                redirectactivity(ManageActivity.this, MembersManageActivity.class,bundle);
+            }
+        });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirectactivity(ManageActivity.this, LoginActivity.class,bundle);
             }
         });
     }
@@ -96,9 +108,10 @@ public class ManageActivity extends AppCompatActivity {
         };
     }
 
-    public static void redirectactivity(Activity activity, Class secondactivity){
+    public static void redirectactivity(Activity activity, Class secondactivity,Bundle bundle){
         Intent intent=new Intent(activity,secondactivity);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtras(bundle);
         activity.startActivity(intent);
         activity.finish();
     }

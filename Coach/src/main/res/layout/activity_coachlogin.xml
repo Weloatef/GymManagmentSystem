@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/background1"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:weightSum="4"
+    tools:context=".coachlogin">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:layout_weight="0.7"
+        android:background="@drawable/custom"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Register"
+                android:textAlignment="center"
+                android:textColor="@color/Blue"
+                android:textSize="36sp"
+                android:textStyle="bold">
+            </TextView>
+            <TextView
+                android:id="@+id/FailedRTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center">
+            </TextView>
+            <EditText
+                android:id="@+id/EmailR"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/custom"
+                android:drawableLeft="@drawable/baseline_people_24"
+                android:drawablePadding="8dp"
+                android:hint="CoachUserName"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textColor="@color/Blue"
+                android:textSize="18sp"
+                android:textStyle="bold">
+
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/PasswordR"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/custom"
+                android:drawableLeft="@drawable/baseline_lock_24"
+                android:drawablePadding="8dp"
+                android:hint="Password"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textColor="@color/Blue"
+                android:textSize="18sp"
+                android:textStyle="bold">
+            </EditText>
+            <ProgressBar
+                android:id="@+id/ProgressbarR"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+            <Button
+                android:id="@+id/RegisterButton"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/Blue"
+                android:text="Login"
+                android:textSize="18sp"
+                app:cornerRadius="20dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

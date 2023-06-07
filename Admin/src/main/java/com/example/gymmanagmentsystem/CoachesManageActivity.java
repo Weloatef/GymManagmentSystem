@@ -17,10 +17,12 @@ public class CoachesManageActivity extends AppCompatActivity {
     ImageButton MenuButton;
     Button AddCButton;
     LinearLayout home,manage,billing,reports,profile,aboutus;
+    Button logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coaches_manage);
+        logout=findViewById(R.id.LogoutButton);
 
         drawerLayout = findViewById(R.id.drawerLayout);
         AddCButton=findViewById(R.id.AddCButton);
@@ -71,6 +73,12 @@ public class CoachesManageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 redirectactivity(CoachesManageActivity.this, CoachRegisterActivity.class);
+            }
+        });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirectactivity(CoachesManageActivity.this, LoginActivity.class);
             }
         });
     }

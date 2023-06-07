@@ -11,6 +11,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Admin" />
+            <option value="$PROJECT_DIR$/Coach" />
+            <option value="$PROJECT_DIR$/Member" />
           </set>
         </option>
       </GradleProjectSettings>

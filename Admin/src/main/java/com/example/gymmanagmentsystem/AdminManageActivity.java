@@ -18,11 +18,13 @@ public class AdminManageActivity extends AppCompatActivity {
 
     Button AddAButton;
     LinearLayout home,manage,billing,reports,profile,aboutus;
+    Button logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_manage);
         AddAButton=findViewById(R.id.AddAButton);
+        logout=findViewById(R.id.LogoutButton);
 
         drawerLayout = findViewById(R.id.drawerLayout);
         home=findViewById(R.id.home);
@@ -72,6 +74,12 @@ public class AdminManageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 redirectactivity(AdminManageActivity.this, RegisterActivity.class);
+            }
+        });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirectactivity(AdminManageActivity.this, LoginActivity.class);
             }
         });
     }

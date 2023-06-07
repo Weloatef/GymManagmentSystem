@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".plan"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Plan"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:textColor="#30A2FF"
+        android:paddingBottom="20dp"
+        android:id="@+id/plantxt"/>
+
+
+    <EditText
+        android:id="@+id/myEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:hint="Enter Member's plan here"
+        android:inputType="textMultiLine"
+        android:minLines="10" />
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:weightSum="2">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apply"
+            android:id="@+id/applyid"
+            android:layout_weight="1"
+            android:backgroundTint="#30A2FF"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:id="@+id/cancelid"
+            android:backgroundTint="#30A2FF"
+
+            android:layout_weight="1"/>
+
+        </LinearLayout>
+
+</LinearLayout>
